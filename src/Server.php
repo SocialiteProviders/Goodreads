@@ -53,11 +53,9 @@ class Server extends BaseServer
      */
     public function userDetails($data, TokenCredentials $tokenCredentials)
     {
-        $user = new User();
-
-        $user->id   = (int) $data->user->attributes()->id;
-        $user->name = (string) $data->user->name;
-
+        $user        = new User();
+        $user->id    = (int) $data->user->attributes()->id;
+        $user->name  = (string) $data->user->name;
         $user->extra = json_decode(json_encode($data), true);
 
         return $user;

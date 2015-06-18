@@ -1,4 +1,5 @@
 <?php
+
 namespace SocialiteProviders\Goodreads;
 
 use SocialiteProviders\Manager\SocialiteWasCalled;

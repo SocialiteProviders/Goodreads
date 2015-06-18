@@ -1,4 +1,5 @@
 <?php
+
 namespace SocialiteProviders\Goodreads;
 
 use Laravel\Socialite\One\User;
@@ -53,9 +54,9 @@ class Server extends BaseServer
      */
     public function userDetails($data, TokenCredentials $tokenCredentials)
     {
-        $user        = new User();
-        $user->id    = (int) $data->user->attributes()->id;
-        $user->name  = (string) $data->user->name;
+        $user = new User();
+        $user->id = (int) $data->user->attributes()->id;
+        $user->name = (string) $data->user->name;
         $user->extra = json_decode(json_encode($data), true);
 
         return $user;
@@ -93,7 +94,7 @@ class Server extends BaseServer
         parse_str($body, $data);
 
         if (!$data || !is_array($data)) {
-            throw new CredentialsException("Unable to parse temporary credentials response.");
+            throw new CredentialsException('Unable to parse temporary credentials response.');
         }
 
         $temporaryCredentials = new TemporaryCredentials();

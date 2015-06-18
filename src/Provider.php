@@ -1,4 +1,5 @@
 <?php
+
 namespace SocialiteProviders\Goodreads;
 
 use Laravel\Socialite\One\AbstractProvider;

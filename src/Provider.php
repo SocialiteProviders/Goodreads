@@ -15,13 +15,14 @@ class Provider extends AbstractProvider
     /**
      * {@inheritdoc}
      */
-    public function user()
+    protected function mapUserToObject(array $user)
     {
-        $user = $this->server->getUserDetails($token = $this->getToken());
-
-        return (new User())->setRaw($user->extra)->map([
-            'id' => $user->id, 'nickname' => null, 'name' => $user->name,
-            'email' => null, 'avatar' => null,
-        ])->setToken($token->getIdentifier(), $token->getSecret());
+        return (new User())->setRaw($user['extra'])->map([
+            'id' => $user['id'],
+            'nickname' => null,
+            'name' => $user['name'],
+            'email' => null,
+            'avatar' => null,
+        ]);
     }
 }
